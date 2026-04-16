@@ -1,74 +1,66 @@
-import React, { useContext } from 'react';
-import { TimelineContextCreate } from '../../context/TimelineContextCreator';
-import { FriendsContextCreate } from '../../context/FriendsContextCreator';
+import React, { useContext, useMemo } from "react";
+import { TimelineContextCreate } from "../../context/TimelineContextCreator";
+import { FriendsContextCreate } from "../../context/FriendsContextCreator";
 
 const CategoryCounterCards = () => {
     const { friends } = useContext(FriendsContextCreate);
     const { timeline } = useContext(TimelineContextCreate);
 
-    const onTrackContacts = friends.filter(contact => contact.status === "On-Track");
-    const needAttentionContacts = friends.filter(contact => contact.status === "Overdue");
+    const safeFriends = useMemo(() => friends ?? [], [friends]);
 
-    // Card data array
-    const cards = [
-        { label: "Total Friends", value: friends.length },
-        { label: "On Track", value: onTrackContacts.length },
-        { label: "Need Attention", value: needAttentionContacts.length },
-        { label: "Interactions This Month", value: timeline.length }
-    ];
+    const grandTotal = useMemo(() => {
+        return safeFriends.reduce((sum, friend) => {
+            return sum + Number(friend.total_deposit || 0);
+        }, 0);
+    }, [safeFriends]);
+
+    const totalLoan = useMemo(() => {
+        return safeFriends.reduce((sum, friend) => {
+            return sum + Number(friend.current_loan || 0);
+        }, 0);
+    }, [safeFriends]);
+
+    const currentBalance = useMemo(() => {
+        return grandTotal - totalLoan;
+    }, [grandTotal, totalLoan]);
 
     return (
-        <div className='grid grid-cols-2 md:grid-cols-4 w-11/12 gap-10 mt-5 mx-auto text-center'>
-            {cards.map((card, index) => (
-                <div key={index} className='bg-white shadow-md rounded-md p-5'>
-                    <h3 className='font-bold text-3xl text-green-800'>{card.value}</h3>
-                    <p className='text-gray-500'>{card.label}</p>
-                </div>
-            ))}
+        <div className="w-11/12 mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+
+            {/* Card 1 */}
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
+                <h3 className="text-sm text-gray-500 mb-2">Honorable Members</h3>
+                <h2 className="font-bold text-3xl text-emerald-600">
+                    {safeFriends.length}
+                </h2>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
+                <h3 className="text-sm text-gray-500 mb-2">Grand Total Deposit</h3>
+                <h2 className="font-bold text-3xl text-emerald-600">
+                    ৳ {grandTotal}
+                </h2>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
+                <h3 className="text-sm text-gray-500 mb-2">Total Loan Allotted</h3>
+                <h2 className="font-bold text-3xl text-red-500">
+                    ৳ {totalLoan}
+                </h2>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
+                <h3 className="text-sm text-gray-500 mb-2">Current Balance</h3>
+                <h2 className="font-bold text-3xl text-blue-600">
+                    ৳ {currentBalance}
+                </h2>
+            </div>
+
         </div>
     );
 };
 
 export default CategoryCounterCards;
-
-// বার বার একই কোড লেখা এড়াতে ম্যাপ করে কার্ড বানালাম
-
-// import React, { useContext } from 'react';
-// import { TimelineContextCreate } from '../../context/TimelineContextCreator';
-// import { FriendsContextCreate } from '../../context/FriendsContextCreator';
-
-// const CategoryCounterCards = () => {
-
-//     const { friends } = useContext(FriendsContextCreate);
-//     const { timeline } = useContext(TimelineContextCreate);
-//     // console.log(friends, "ekhon khuji")
-
-//     const onTrackContacts = friends.filter(contact => contact.status === "On-Track");
-//     const needAttentionContacts = friends.filter(contact => contact.status === "Overdue");
-//     // console.log("amar desh", friends)
-//     return (
-//         <div className='grid grid-cols-2 md:grid-cols-4 w-11/12 gap-10 mt-5 mx-auto text-center'>
-//             <div className='bg-white shadow-md rounded-md p-3'>
-//                 <h3 className='font-bold text-3xl'>{friends.length}</h3>
-//                 <p className='text-gray-500'>Total Friends</p>
-//             </div>
-
-//             <div className='bg-white shadow-md rounded-md p-3'>
-//                 <h3 className='font-bold text-3xl'>{onTrackContacts.length}</h3>
-//                 <p className='text-gray-500'>On Track</p>
-//             </div>
-
-//             <div className='bg-white shadow-md rounded-md p-3'>
-//                 <h3 className='font-bold text-3xl'>{needAttentionContacts.length}</h3>
-//                 <p className='text-gray-500'>Need Attention</p>
-//             </div>
-
-//             <div className='bg-white shadow-md rounded-md p-3'>
-//                 <h3 className='font-bold text-3xl'>{timeline.length}</h3>
-//                 <p className='text-gray-500'>Interactions This Month</p>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default CategoryCounterCards;

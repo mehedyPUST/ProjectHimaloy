@@ -1,4 +1,3 @@
-
 import { RiseLoader } from "react-spinners";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
@@ -8,7 +7,7 @@ import MainLayout from "../layout/MainLayout";
 import TimeLine from "../components/pages/TimeLine";
 import HomePage from "../components/pages/HomePage";
 import Stats from "../components/pages/Stats";
-import { FriendDetails } from './FriendDetailsLazy';
+import { FriendDetails } from "./FriendDetailsLazy";
 
 export const router = createBrowserRouter([
     {
@@ -16,18 +15,10 @@ export const router = createBrowserRouter([
         element: <MainLayout />,
         errorElement: <ErrorMsg />,
         children: [
-            {
-                index: true,
-                element: <HomePage />
-            },
-            {
-                path: "/timeline",
-                element: <TimeLine />
-            },
-            {
-                path: "/stats",
-                element: <Stats />
-            },
+            { index: true, element: <HomePage /> },
+            { path: "/timeline", element: <TimeLine /> },
+            { path: "/stats", element: <Stats /> },
+
             {
                 path: "/friend-details/:friendId",
                 element: (
@@ -41,16 +32,7 @@ export const router = createBrowserRouter([
                         <FriendDetails />
                     </Suspense>
                 ),
-                loader: async () => {
-                    const res = await fetch('/friendsData.json');
-                    return res.json();
-                },
-                HydrateFallback: () => (
-                    <div className="flex items-center justify-center min-h-screen">
-                        <RiseLoader color="#10B981" />
-                    </div>
-                ), // Add this
-            }
-        ]
-    }
+            },
+        ],
+    },
 ]);

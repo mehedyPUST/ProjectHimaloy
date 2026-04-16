@@ -1,32 +1,77 @@
-// src/context/FriendsContext.js
 import { useState, useEffect } from "react";
 import { FriendsContextCreate } from "./FriendsContextCreator";
+
+const API_URL =
+    "https://docs.google.com/spreadsheets/d/16CW9mxhRZXCowI5tL1Pjg69mrTvWgmYT4rQvjoDXqdc/gviz/tq?tqx=out:json&gid=0";
+
+// 🔥 convert Google date → YYYY-MM-DD
+const formatDate = (value) => {
+    if (!value) return value;
+
+    // already correct format
+    if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+        return value;
+    }
+
+    // Google date object: Date(2026,6,15)
+    if (typeof value === "string" && value.startsWith("Date")) {
+        const match = value.match(/\d+/g);
+
+        if (!match) return value;
+
+        const [year, month, day] = match;
+
+        const date = new Date(Number(year), Number(month), Number(day));
+
+        return date.toISOString().split("T")[0];
+    }
+
+    return value;
+};
 
 const FriendsContext = ({ children }) => {
     const [friends, setFriends] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/friendsData.json')
-            .then(res => res.json())
-            .then(data => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch(API_URL);
+                const text = await res.text();
+
+                const json = JSON.parse(
+                    text.substring(
+                        text.indexOf("{"),
+                        text.lastIndexOf("}") + 1
+                    )
+                );
+
+                const cols = json.table.cols.map(col => col.label);
+
+                const data = json.table.rows.map(row => {
+                    let obj = {};
+
+                    row.c?.forEach((cell, i) => {
+                        obj[cols[i]] = formatDate(cell?.v); // 🔥 HERE FIXED
+                    });
+
+                    return obj;
+                });
+
                 setFriends(data);
+            } catch (err) {
+                console.error(err);
+                setFriends([]);
+            } finally {
                 setLoading(false);
-            })
-            .catch(err => {
-                console.error("Failed to load friends:", err);
-                setLoading(false);
-            });
+            }
+        };
+
+        fetchData();
     }, []);
 
-    const data = {
-        friends,
-        loading,
-        setFriends
-    };
-
     return (
-        <FriendsContextCreate.Provider value={data}>
+        <FriendsContextCreate.Provider value={{ friends, loading }}>
             {children}
         </FriendsContextCreate.Provider>
     );
