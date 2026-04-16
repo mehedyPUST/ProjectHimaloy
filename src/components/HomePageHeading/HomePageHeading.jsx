@@ -18,8 +18,8 @@ const HomePageHeading = () => {
 
             {/* Button */}
             <button className='flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl bg-green-800 text-white text-sm sm:text-base hover:bg-green-900 transition'>
-                <FaPlus />
-                Add a Friend
+
+                Apply For Loan
             </button>
 
         </div>

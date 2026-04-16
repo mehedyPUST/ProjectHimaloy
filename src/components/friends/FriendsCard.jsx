@@ -7,8 +7,7 @@ const FriendsCard = ({ friend }) => {
 
 
     return (
-        <Link
-            to={`/friend-details/${id}`}
+        <div
             className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-emerald-200"
         >
             <div className="p-6 flex flex-col items-center text-center">
@@ -26,12 +25,13 @@ const FriendsCard = ({ friend }) => {
                 <p className="text-gray-500 text-sm mt-1">Current Loan: {current_loan} BDT</p>
 
 
-                <button className='btn bg-green-600 text-white  mt-3 w-full'>See Details</button>
+                <Link
+                    to={`/friend-details/${id}`} className='btn bg-green-600 hover:bg-green-700 text-white  mt-3 w-full'>See Details</Link>
 
 
 
             </div>
-        </Link>
+        </div>
     );
 };
 
