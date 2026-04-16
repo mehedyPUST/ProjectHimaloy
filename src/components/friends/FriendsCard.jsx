@@ -26,6 +26,9 @@ const FriendsCard = ({ friend }) => {
                 <p className="text-gray-500 text-sm mt-1">Current Loan: {current_loan} BDT</p>
 
 
+                <button className='btn bg-green-600 text-white  mt-3 w-full'>See Details</button>
+
+
 
             </div>
         </Link>
