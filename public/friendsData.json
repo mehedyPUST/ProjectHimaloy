@@ -1,0 +1,194 @@
+[
+    {
+        "id": 1,
+        "name": "Bodrul Alam",
+        "picture": "https://i.ibb.co.com/prjfvB9d/bokul.jpg",
+        "email": "bokul@example.com",
+        "days_since_contact": 12,
+        "status": "Overdue",
+        "tags": [
+            "College",
+            "Close Friend"
+        ],
+        "bio": "Met in university. Love hiking together.",
+        "goal": 14,
+        "next_due_date": "2025-07-20",
+        "contactPreference": "Whatsapp"
+    },
+    {
+        "id": 2,
+        "name": "Aminul Islam",
+        "picture": "https://i.ibb.co.com/cSDpPZKm/amin.jpg",
+        "email": "amin@example.com",
+        "days_since_contact": 5,
+        "status": "On-Track",
+        "tags": [
+            "Work",
+            "Mentor"
+        ],
+        "bio": "Former manager who helped me grow.",
+        "goal": 10,
+        "next_due_date": "2025-07-28",
+        "contactPreference": "Email"
+    },
+    {
+        "id": 3,
+        "name": "Rakibul Islam",
+        "picture": "https://i.ibb.co.com/mFtjjFhR/himu.jpg",
+        "email": "mamu@example.com",
+        "days_since_contact": 18,
+        "status": "Overdue",
+        "tags": [
+            "Gym",
+            "Best Friend"
+        ],
+        "bio": "Workout buddy since 2019.",
+        "goal": 14,
+        "next_due_date": "2025-07-15",
+        "contactPreference": "Call"
+    },
+    {
+        "id": 4,
+        "name": "Imtiaz Ahmed",
+        "picture": "https://i.ibb.co.com/WC86Dpr/imtiaz.jpg",
+        "email": "imtiaz@example.com",
+        "days_since_contact": 8,
+        "status": "Almost Due",
+        "tags": [
+            "Family",
+            "Cousin"
+        ],
+        "bio": "We grew up together. Loves baking.",
+        "goal": 10,
+        "next_due_date": "2025-07-25",
+        "contactPreference": "Whatsapp"
+    },
+    {
+        "id": 5,
+        "name": "Mainul Islam",
+        "picture": "https://i.ibb.co.com/wNzVgVv7/mainul.jpg",
+        "email": "mainul@example.com",
+        "days_since_contact": 3,
+        "status": "On-Track",
+        "tags": [
+            "College",
+            "Roommate"
+        ],
+        "bio": "Lived together for 2 years.",
+        "goal": 7,
+        "next_due_date": "2025-07-30",
+        "contactPreference": "Email"
+    },
+    {
+        "id": 6,
+        "name": "Maksudur Rahman",
+        "picture": "https://i.ibb.co.com/MDNLwrxj/maksud.jpg",
+        "email": "maksud@example.com",
+        "days_since_contact": 21,
+        "status": "Overdue",
+        "tags": [
+            "Travel",
+            "Close Friend"
+        ],
+        "bio": "Backpacked through Europe together.",
+        "goal": 14,
+        "next_due_date": "2025-07-12",
+        "contactPreference": "Call"
+    },
+    {
+        "id": 7,
+        "name": "Mustafizur Rahman",
+        "picture": "https://i.ibb.co.com/jv55fJYC/mustafiz.jpg",
+        "email": "mustafiz@example.com",
+        "days_since_contact": 9,
+        "status": "Almost Due",
+        "tags": [
+            "Work",
+            "Team Lead"
+        ],
+        "bio": "Shares my passion for coffee.",
+        "goal": 10,
+        "next_due_date": "2025-07-24",
+        "contactPreference": "Whatsapp"
+    },
+    {
+        "id": 8,
+        "name": "Nahid Hasan",
+        "picture": "https://i.ibb.co.com/8DKMkJ64/nahid.jpg",
+        "email": "nahid@example.com",
+        "days_since_contact": 2,
+        "status": "On-Track",
+        "tags": [
+            "Family",
+            "Brother"
+        ],
+        "bio": "My biggest supporter.",
+        "goal": 5,
+        "next_due_date": "2025-08-01",
+        "contactPreference": "Email"
+    },
+    {
+        "id": 9,
+        "name": "Rakib Hossain",
+        "picture": "https://i.ibb.co.com/S7M95Lfd/rakib.jpg",
+        "email": "rakib@example.com",
+        "days_since_contact": 14,
+        "status": "Overdue",
+        "tags": [
+            "College",
+            "Teammate"
+        ],
+        "bio": "Played soccer together in university.",
+        "goal": 12,
+        "next_due_date": "2025-07-19",
+        "contactPreference": "Call"
+    },
+    {
+        "id": 10,
+        "name": "Rasel Ahmed",
+        "picture": "https://i.ibb.co.com/svnRJW4Y/rasel.jpg",
+        "email": "rasel@example.com",
+        "days_since_contact": 6,
+        "status": "On-Track",
+        "tags": [
+            "Neighbor",
+            "Close Friend"
+        ],
+        "bio": "Lives two doors down. Great cook.",
+        "goal": 8,
+        "next_due_date": "2025-07-27",
+        "contactPreference": "Whatsapp"
+    },
+    {
+        "id": 11,
+        "name": "Nazmussadat Antu",
+        "picture": "https://i.ibb.co.com/YFyH7FMD/antu.jpg",
+        "email": "antu@example.com",
+        "days_since_contact": 11,
+        "status": "Almost Due",
+        "tags": [
+            "Hiking",
+            "Adventure"
+        ],
+        "bio": "Always up for a mountain climb.",
+        "goal": 12,
+        "next_due_date": "2025-07-22",
+        "contactPreference": "Email"
+    },
+    {
+        "id": 12,
+        "name": "Shamim Reza",
+        "picture": "https://i.ibb.co.com/Q34kXNbm/shamim.jpg",
+        "email": "antu2@example.com",
+        "days_since_contact": 4,
+        "status": "On-Track",
+        "tags": [
+            "Book Club",
+            "Friend"
+        ],
+        "bio": "We meet monthly to discuss novels.",
+        "goal": 6,
+        "next_due_date": "2025-07-29",
+        "contactPreference": "Call"
+    }
+]
