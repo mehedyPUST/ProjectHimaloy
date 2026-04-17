@@ -4,7 +4,7 @@ import { FriendsContextCreate } from "./FriendsContextCreator";
 const API_URL =
     "https://docs.google.com/spreadsheets/d/16CW9mxhRZXCowI5tL1Pjg69mrTvWgmYT4rQvjoDXqdc/gviz/tq?tqx=out:json&gid=918833718";
 
-// 🔥 convert Google date → YYYY-MM-DD
+
 const formatDate = (value) => {
     if (!value) return value;
 
