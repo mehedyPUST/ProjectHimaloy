@@ -8,6 +8,7 @@ import { FriendsContextCreate } from "../../context/FriendsContextCreator";
 import VoiceCallIcon from "../voiceCallIcon/VoiceCallIcon";
 import TextMsgIcon from "../textMsgIcon/TextMsgIcon";
 import VideoCallIcon from "../videoCallIcon/VideoCallIcon";
+import { Link } from "react-router";
 
 const FriendDetails = () => {
     const { friendId } = useParams();
@@ -186,6 +187,13 @@ const FriendDetails = () => {
                         )}
 
                     </div>
+
+                    <Link
+                        to={"/"}
+                        className="mt-8 inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                    >
+                        ← Back to Home
+                    </Link>
 
                 </div>
             </div>
