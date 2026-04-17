@@ -8,12 +8,11 @@ const API_URL =
 const formatDate = (value) => {
     if (!value) return value;
 
-    // already correct format
+
     if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
         return value;
     }
 
-    // Google date object: Date(2026,6,15)
     if (typeof value === "string" && value.startsWith("Date")) {
         const match = value.match(/\d+/g);
 
