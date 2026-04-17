@@ -120,7 +120,7 @@ const NavItems = ({ onClick }) => {
                     to={item.to}
                     onClick={onClick}   // 👈 close menu on mobile click
                     className={({ isActive }) =>
-                        `flex items-center gap-2 px-4 py-2 rounded-2xl transition-all duration-300 ${isActive
+                        `flex items-center gap-2 px-4 py-2 rounded-3xl transition-all duration-300 ${isActive
                             ? "bg-green-800 text-white shadow-md"
                             : "hover:bg-green-100"
                         }`

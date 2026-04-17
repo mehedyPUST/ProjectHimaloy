@@ -26,7 +26,7 @@ const FriendsCard = ({ friend }) => {
 
 
                 <Link
-                    to={`/friend-details/${id}`} className='btn bg-green-600 hover:bg-green-700 text-white  mt-3 w-full'>See Details</Link>
+                    to={`/friend-details/${id}`} className='px-4 py-2 rounded-xl transition-all duration-300 bg-green-600 hover:bg-green-700 text-white  mt-3 w-full'><span className='md:hidden'>Tap for Details</span> <span className='hidden md:block'>See Details</span></Link>
 
 
 
