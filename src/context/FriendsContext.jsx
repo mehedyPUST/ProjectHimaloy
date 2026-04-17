@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FriendsContextCreate } from "./FriendsContextCreator";
 
 const API_URL =
-    "https://docs.google.com/spreadsheets/d/16CW9mxhRZXCowI5tL1Pjg69mrTvWgmYT4rQvjoDXqdc/gviz/tq?tqx=out:json&gid=918833718";
+    "https://docs.google.com/spreadsheets/d/1QKWqcFdRjIHwQ5lbtAb464h6X_HVla3xHXDj0SSxdgU/gviz/tq?tqx=out:json&gid=918833718";
 
 
 const formatDate = (value) => {
